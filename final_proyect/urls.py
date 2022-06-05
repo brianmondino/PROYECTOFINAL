@@ -20,10 +20,11 @@ from final_proyect.views import welcome, index
 
 
 urlpatterns = [
-    path('', index, name = 'index'),
+    path('', index, name = 'index'),                    #ACA '' ESTA ASI PORQUE ES EL INDEX
 
-    path('admin/', admin.site.urls),
-    path('welcome/', welcome, name = 'welcome'),
+    path('admin/', admin.site.urls),                    # acá es url , el sitio de admin
+    path('welcome/', welcome, name = 'welcome'),        # acá es url , redigire a welcome (una funcion que esta en views.py), nombre que aparece en la url
 
-    path('products/', include('app_proyect.urls')),
+    path('products/', include('app_proyect.urls')),     #acá redirecciona a urls de app_proyect donde existe products
 ]
+

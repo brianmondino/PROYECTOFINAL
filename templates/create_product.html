@@ -4,25 +4,26 @@
     --CREAR PRODUCTO--
 {% endblock %}
 
-
 {% block contenido%}
+
 {%if form %}
     <h1>Aca va el contenido para crear un producto</h1>
-    <form action="" method="POST">
-    {% csrf_token %}  
+    <form action="" method="POST"><!-- SE USA POST PORQUE ESTA INFO NO LA TIENE QUE VER EL USUARIO-->
+    {% csrf_token %}                                            <!--TOKENNNN!! VA SI O SI-->
     <table>
         {{form.as_table}}
     </table>
-    <input type="submit", value="ENVIAR!">
+    <input type="submit", value="ENVIAR!">                      <!--LUEGO DE LLENAR EL FORM LO CARGA EN LA BASE DE DATOS ?-->
 </form>
 {% elif new_product%}
 
+<!--ESTO DE ACA ABAJO ESTA SACADO DE BOOTSTRAP-->
 <div class="card" style="width: 18rem;">
     <img class="card-img-top" src=".../100px180/" alt="Card image cap">
     <div class="card-body">
-        <h5 class="card-title">{{new_product.name}}</h5>
-        <p class="card-text">{{new_product.description}}</p>
-        <p class="card-text">{{new_product.price}}</p>
+        <h5 class="card-title">{{new_product.name}}</h5>        <!--ACA VA EL TITULO, LO SACO DE APP_PROYECT/VIEWS.PY EN LA FUNCION DE create_product -->
+        <p class="card-text">{{new_product.description}}</p>    <!--lo mismo que arriba-->
+        <p class="card-text">{{new_product.price}}</p>          <!--lo mismo que arriba-->
 
     </div>
 </div>

@@ -5,17 +5,17 @@ from app_proyect.models import Products
 from app_proyect.forms import Product_form
 
 def products(request):
-        productos = Products.objects.all()
+        productos = Products.objects.all()                      #indica que son todos los productos de class Productos que cree en models.py
         context = {'productos':productos}
         return render(request, 'products.html', context=context)
 
 def create_product(request):
-	if request.method == 'GET':
-		form = Product_form()
+	if request.method == 'GET':              #como sabe que entra GET ?????????????????????????????????????????
+		form = Product_form()                           #Product_from es un formulario lo cree en froms.py e incluye todos los campos de la class Products(en models.py)
 		context = {'form':form}
 		return render(request, 'create_product.html', context = context)
 	else:
-		form = Product_form(request.POST)
+		form = Product_form(request.POST)  #como sabe que entra POST ?????????????????????????????????????????
 		if form.is_valid():
 			new_product = Products.objects.create(
 				name = form.cleaned_data['name'],

@@ -11,11 +11,15 @@
         {% endblock %}
     </title>
 </head>
+<!-- este link de abjao esta en bootstrapp, opcion:  v4.6.x docs, CSS y dice que va acá-->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Index</a>
+
+    <!--aca pego la navbar que esta en bootstrapp y la modifico  -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">  <!--navbar-dark bg-dark estaban en light //cambia color de la navbar-->
+        <a class="navbar-brand" href="http://127.0.0.1:8000/">Index</a>  <!--1ER BOTON DE NAVBAR -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -24,42 +28,45 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/admin/">ADMIN <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/admin/">Boton Admin <span class="sr-only">(current)</span></a> <!--SEGUNDO BOTON: SOLAPAS! HREF REDIRIGE Y AL LADO EL NOMBRE -->
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/products/">Productos</a>
+                    <a class="nav-link" href="/welcome/">Bienvenidos</a>          <!--3ER BOTON!-->
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/products/create-product/">Crear Productos</a>
                 </li>
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown">  <!--BOTONERA CON SUBINDICES-->
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-toggle="dropdown" aria-expanded="false">
-                        Dropdown
+                        Solapa Productos  <!--TITULO DE LA SOLAPA-->
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="/products/">Productos</a> <!--1ER BOTON -->
+                        <a class="dropdown-item" href="/products/create-product/">Crear Productos</a>               <!--2DO BOTON -->
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">Something else here</a>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled">Disabled</a>
+                    <a class="nav-link disabled">Disabled</a>  <!--ULTIMO BOTON, ESTADO DESACTIVADO-->
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0" action="/products/search-product-view/" method="GET">
-                <input class="form-control mr-sm-2" type="text" placeholder="Nombre de producto" name="search" aria-label="Search">
+            <form class="form-inline my-2 my-lg-0" action="/products/search-product-view/" method="GET"> <!--aca se agrega toda esta linea action="/products/search-product-view/" method="GET"-->
+                <input class="form-control mr-sm-2" type="text" placeholder="Nombre de producto" name="search" aria-label="Search"> <!--se modifica type y se pone tipo text, placeholder 
+                    que es lo que aparece dentro de la barra de busqueda-->
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar Producto</button>
             </form>
         </div>
     </nav>
+
     {% block contenido %}
-    <!--Aca de comenta solo-->
+    <!--Aca es solo para comentar cosas-->
     {% endblock %}
 
 
 </body>
+<!--los 2 renglones de abajo estan en getbootstrp.comBundle-->
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
 
