@@ -19,7 +19,7 @@ def create_product(request):
 		if form.is_valid():
 			new_product = Products.objects.create(
 				name = form.cleaned_data['name'],
-				proce = form.cleaned_data['price'],
+				price = form.cleaned_data['price'],
 				description = form.cleaned_data['description'],
 				SKU = form.cleaned_data['SKU'],
 				active = form.cleaned_data['active'],
@@ -29,6 +29,6 @@ def create_product(request):
 
 def search_product_view(request):
 	print(request.GET)
-	product = Products.objects.filter(name__icontains = request.GET['search'])
-	context = {'product':product}
+	product_search = Products.objects.filter(name__icontains = request.GET['search'])
+	context = {'product_search':product_search}
 	return render (request, 'search_product.html', context = context)
